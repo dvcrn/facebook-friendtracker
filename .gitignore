@@ -4,3 +4,4 @@ venv
 .idea
 .pyc
 settings_dev.py
+node_modules
