@@ -2,12 +2,11 @@
   "name": "freeper",
   "version": "0.0.0",
   "description": "Freeper package",
+  "dependencies": {
+    "bower": "~1.2.8"
+  },
   "scripts": {
-    "postinstall": "./bin/bower install"
   },
   "author": "",
-  "license": "BSD-2-Clause",
-  "devDependencies": {
-    "bower": "~1.2.8"
-  }
+  "license": "BSD-2-Clause"
 }
