@@ -1,0 +1,71 @@
+@import "settings";
+@import "foundation";
+@import "bourbon";
+
+#header {
+  text-align: center;
+  line-height: 50px;
+}
+
+.friend {
+  @include transition(all 0.3s ease-in-out);
+  display: block;
+  padding: 5px;
+  margin: 5px;
+}
+
+.friend:hover {
+  background: #baeeff;
+}
+
+.friend img {
+  min-height: 50px;
+  min-width: 50px;
+  vertical-align: middle;
+}
+
+.friend p {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 50px;
+  margin: 0;
+}
+
+.content-centered {
+  text-align: center;
+}
+
+.friends {
+  margin-top: 20px !important;
+}
+
+.actions {
+  margin-top: 20px !important;
+}
+
+.loadingindicator {
+	display: block;
+	width: 40px;
+	height: 40px;
+	border: solid 3px;
+	border-color: #555555 rgba(255, 255, 255, 0);
+	-webkit-border-radius: 1000px;
+	border-radius: 1000px;
+	-webkit-animation-name: rotate;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: rotate;
+	-moz-animation-duration: 1.5s;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+	-o-animation-name: rotate;
+	-o-animation-duration: 1.5s;
+	-o-animation-iteration-count: infinite;
+	-o-animation-timing-function: linear;
+	animation-name: rotate;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	margin: 0 auto;
+}

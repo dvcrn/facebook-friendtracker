@@ -1,0 +1,6 @@
+.sass-cache
+bower_components/
+venv
+.idea
+.pyc
+settings_dev.py

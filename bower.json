@@ -1,0 +1,16 @@
+{
+  "name": "Freeper Facebook App",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation",
+    "jquery": "~2.0.3",
+    "angular": "~1.2.5",
+    "modernizr": "~2.7.1",
+    "angular-route": "~1.2.5",
+    "bourbon": "~3.1.8",
+    "highcharts-ng": "~0.0.2",
+    "highcharts": "~3.0.7",
+    "facebook-ng": "latest"
+  }
+}

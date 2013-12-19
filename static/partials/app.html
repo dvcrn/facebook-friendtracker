@@ -1,0 +1,38 @@
+<h3>Your statistics</h3>
+<div class="row chart">
+    <div class="large-12 medium-12 columns">
+        <highchart id="chart" config="chartConfig"></highchart>
+    </div>
+</div>
+<div class="row friends">
+    <div class="large-12 medium-12 columns">
+        <p>
+            <strong>Please note: </strong>
+            Friends listed here are archived. They can be in your friendlist again and still appear here.
+            Please reset the app now and then to clean the archive :)<br/>
+            A missing avatar usually means that the friend deactivated his/her profile or is currently not available on Facebook.
+        </p>
+    </div>
+    <div class="large-6 medium-6 columns">
+        <h5>New Friends ({{ new_friends.length }})</h5>
+        <p ng-show="new_friends.length == 0">No new friends so far. Come back later.</p>
+        <a href="http://www.facebook.com/profile.php?id={{ friend.0 }}" target="_blank" class="friend" ng-repeat="friend in new_friends">
+            <img src="http://graph.facebook.com/{{ friend.0 }}/picture" alt=""/>
+            <p>{{ friend.1 }}</p>
+        </a>
+    </div>
+    <div class="large-6 medium-6 columns">
+        <h5>Lost Friends ({{ lost_friends.length }})</h5>
+        <p ng-show="lost_friends.length == 0">No lost friends so far. Come back later.</p>
+        <a href="http://www.facebook.com/profile.php?id={{ friend.0 }}" target="_blank" class="friend" ng-repeat="friend in lost_friends">
+            <img src="http://graph.facebook.com/{{ friend.0 }}/picture" alt=""/>
+            <p>{{ friend.1 }}</p>
+        </a>
+    </div>
+</div>
+
+<div class="row actions">
+    <div class="large-12 medium-12 columns content-centered">
+        <a href="#/reset/" ng-show="new_friends.length > 0 || lost_friends.length > 0" class="round button row">Reset app</a>
+    </div>
+</div>
