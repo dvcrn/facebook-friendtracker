@@ -23,26 +23,29 @@ app.factory 'AccessToken', ['$location', ($location) ->
 ]
 
 app.config ['$routeProvider', '$sceDelegateProvider', ($routeProvider, $sceDelegateProvider) ->
+  static_url = 'https://freepr.s3.amazonaws.com/'
+
   $routeProvider
     .when('/app/', {
-      templateUrl: 'static/partials/app.html',
+      templateUrl: static_url + 'static/partials/app.html',
       controller: 'AppCtrl'
     })
     .when('/sync/', {
-      templateUrl: 'static/partials/status.html',
+      templateUrl: static_url + 'static/partials/status.html',
       controller: 'SyncCtrl'
     })
     .when('/auth/:redirectTo/', {
-      templateUrl: 'static/partials/status.html',
+      templateUrl: static_url + 'static/partials/status.html',
       controller: 'AuthCtrl'
     })
     .when('/reset/', {
-      templateUrl: 'static/partials/status.html',
+      templateUrl: static_url + 'static/partials/status.html',
       controller: 'ResetCtrl'
     })
     .otherwise({
       redirectTo: '/auth/sync/'
     })
 
-  $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://freepr.s3.amazonaws.com/*']);
+  $sceDelegateProvider.resourceUrlWhitelist([
+    'self', static_url + '*']);
 ]
