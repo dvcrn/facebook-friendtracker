@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_mongo_database_url
-import datetime
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -42,7 +42,9 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'friendtrackr.heroku.com'
+]
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
