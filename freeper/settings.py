@@ -79,13 +79,6 @@ WSGI_APPLICATION = 'freeper.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-DATABASES = {
-    'default' : {
-        'ENGINE': 'django_mongodb_engine',
-        'NAME': 'freeper'
-   }
-}
-
 DATABASES = {'default': dj_mongohq_url.parse(os.environ.get('MONGOHQ_URL'))}
 
 # Internationalization
@@ -114,7 +107,6 @@ STATICFILES_DIRS = (
 FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID', '')
 FACEBOOK_APP_SECRET = os.environ.get('FACEBOOK_APP_SECRET', '')
 FACEBOOK_CANVAS_URL = 'https://apps.facebook.com/freeper/'
-
 X_FRAME_OPTIONS = 'allow-from apps.facebook.com'
 
 try:
