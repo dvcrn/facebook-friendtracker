@@ -77,9 +77,7 @@ freeperControllers.controller 'AuthCtrl', ['$scope', '$routeParams', '$http', '$
           top.location.href = auth_dialog_url
         when 'connected'
           FB.api '/me/permissions', (response) ->
-            console.info response.data[0]
             if 'manage_notifications' not of response.data[0]
-              console.info 'notifications missing'
               top.location.href = auth_dialog_url
 
           # to make sure we don't use a access token that is already expired, we generate a date object for the expiration time
@@ -87,7 +85,10 @@ freeperControllers.controller 'AuthCtrl', ['$scope', '$routeParams', '$http', '$
           token_expires.setSeconds token_expires.getSeconds() + response.authResponse.expiresIn
 
           AccessToken.set(response.authResponse.accessToken, token_expires)
-          $scope.$apply ->
+          if not $scope.$$phase
+            $scope.$apply ->
+              $location.path '/' + $routeParams.redirectTo
+          else
             $location.path '/' + $routeParams.redirectTo
 ]
 

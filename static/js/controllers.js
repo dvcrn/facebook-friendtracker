@@ -77,18 +77,20 @@
               return top.location.href = auth_dialog_url;
             case 'connected':
               FB.api('/me/permissions', function(response) {
-                console.info(response.data[0]);
                 if (!('manage_notifications' in response.data[0])) {
-                  console.info('notifications missing');
                   return top.location.href = auth_dialog_url;
                 }
               });
               token_expires = new Date();
               token_expires.setSeconds(token_expires.getSeconds() + response.authResponse.expiresIn);
               AccessToken.set(response.authResponse.accessToken, token_expires);
-              return $scope.$apply(function() {
+              if (!$scope.$$phase) {
+                return $scope.$apply(function() {
+                  return $location.path('/' + $routeParams.redirectTo);
+                });
+              } else {
                 return $location.path('/' + $routeParams.redirectTo);
-              });
+              }
           }
         });
       });
