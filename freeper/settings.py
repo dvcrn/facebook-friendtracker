@@ -16,6 +16,10 @@ from dateutil.relativedelta import relativedelta
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+ADMINS = (
+    ('David Mohl', 'dave@dave.cx'),
+)
+
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = "freepr"
@@ -108,6 +112,14 @@ FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID', '')
 FACEBOOK_APP_SECRET = os.environ.get('FACEBOOK_APP_SECRET', '')
 FACEBOOK_CANVAS_URL = 'https://apps.facebook.com/freeper/'
 X_FRAME_OPTIONS = 'allow-from apps.facebook.com'
+
+
+EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME', "")
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD', "")
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 try:
     from settings_dev import *
