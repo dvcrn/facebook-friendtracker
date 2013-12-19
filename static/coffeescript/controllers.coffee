@@ -69,7 +69,8 @@ freeperControllers.controller 'AuthCtrl', ['$scope', '$routeParams', '$http', '$
 
   Facebook.FB (FB) ->
     FB.getLoginStatus (response) ->
-      auth_dialog_url = 'https://www.facebook.com/dialog/oauth?client_id=371545839655510&redirect_uri=http://apps.facebook.com/freeper/&scope=manage_notifications'
+      appId = Facebook._config.appId
+      auth_dialog_url = 'https://www.facebook.com/dialog/oauth?client_id='+appId+'&redirect_uri=http://apps.facebook.com/'+appId+'/&scope=manage_notifications'
       switch response.status
         # 'unknown' means the user did not give permissions to use the app or is not logged in.
         # redirecting to facebooks oauth dialog to force him to log in

@@ -69,8 +69,9 @@
       $scope.status = 'Waiting for Authorization...';
       return Facebook.FB(function(FB) {
         return FB.getLoginStatus(function(response) {
-          var auth_dialog_url, token_expires;
-          auth_dialog_url = 'https://www.facebook.com/dialog/oauth?client_id=371545839655510&redirect_uri=http://apps.facebook.com/freeper/&scope=manage_notifications';
+          var appId, auth_dialog_url, token_expires;
+          appId = Facebook._config.appId;
+          auth_dialog_url = 'https://www.facebook.com/dialog/oauth?client_id=' + appId + '&redirect_uri=http://apps.facebook.com/' + appId + '/&scope=manage_notifications';
           switch (response.status) {
             case 'not_authorized':
             case 'unknown':

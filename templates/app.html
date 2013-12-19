@@ -8,7 +8,7 @@
     <script src="{% static 'bower_components/modernizr/modernizr.js' %}"></script>
   </head>
   <body>
-    <facebook appId="371545839655510" cookie="true" oauth="true" status="true" xfbml="true"></facebook>
+    <facebook appId="{{ appId }}" cookie="true" oauth="true" status="true" xfbml="true"></facebook>
     <div id="fb-root"></div>
     <div class="row">
       <div class="large-12 columns">
@@ -32,7 +32,7 @@
     <script src="{% static 'bower_components/angular/angular.min.js' %}"></script>
     <script src="{% static 'bower_components/angular-route/angular-route.min.js' %}"></script>
     <script src="{% static 'bower_components/highcharts-ng/src/directives/highcharts-ng.js' %}"></script>
-    <script src="{% static 'bower_components/facebook-ng/dist/facebook-ng.js' %}"></script>
+    <script src="{% static 'bower_components/facebook-ng/dist/facebook-ng.min.js' %}"></script>
     <script src="{% static 'js/app.js' %}"></script>
     <script src="{% static 'js/controllers.js' %}"></script>
   </body>
