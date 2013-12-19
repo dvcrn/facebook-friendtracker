@@ -53,7 +53,7 @@
       }).otherwise({
         redirectTo: '/auth/sync/'
       });
-      return $sceDelegateProvider.resourceUrlWhitelist(['self', static_url + '*']);
+      return $sceDelegateProvider.resourceUrlWhitelist(['self', static_url + '**', 'https://www.facebook.com/**']);
     }
   ]);
 

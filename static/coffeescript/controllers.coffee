@@ -87,8 +87,7 @@ freeperControllers.controller 'AuthCtrl', ['$scope', '$routeParams', '$http', '$
           token_expires.setSeconds token_expires.getSeconds() + response.authResponse.expiresIn
 
           AccessToken.set(response.authResponse.accessToken, token_expires)
-          $scope.$apply ->
-            $location.path '/' + $routeParams.redirectTo
+          $location.path '/' + $routeParams.redirectTo
 ]
 
 freeperControllers.controller 'SyncCtrl', ['$scope', '$rootScope', '$location', '$http', '$window', 'AccessToken', \

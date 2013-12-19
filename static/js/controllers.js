@@ -86,9 +86,7 @@
               token_expires = new Date();
               token_expires.setSeconds(token_expires.getSeconds() + response.authResponse.expiresIn);
               AccessToken.set(response.authResponse.accessToken, token_expires);
-              return $scope.$apply(function() {
-                return $location.path('/' + $routeParams.redirectTo);
-              });
+              return $location.path('/' + $routeParams.redirectTo);
           }
         });
       });

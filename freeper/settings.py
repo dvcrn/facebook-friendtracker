@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_mongo_database_url
+import dj_mongohq_url
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
@@ -86,7 +86,7 @@ DATABASES = {
    }
 }
 
-DATABASES = {'default': dj_mongo_database_url.parse(os.environ.get('MONGOHQ_URL'))}
+DATABASES = {'default': dj_mongohq_url.parse(os.environ.get('MONGOHQ_URL'))}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

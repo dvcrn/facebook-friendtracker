@@ -47,5 +47,5 @@ app.config ['$routeProvider', '$sceDelegateProvider', ($routeProvider, $sceDeleg
     })
 
   $sceDelegateProvider.resourceUrlWhitelist([
-    'self', static_url + '*']);
+    'self', static_url + '**', 'https://www.facebook.com/**']);
 ]
