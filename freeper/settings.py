@@ -38,12 +38,11 @@ STATICFILES_STORAGE = 'freeper.s3utils.StaticRootS3BotoStorage'
 SECRET_KEY = '50b5e)rz=sm-m7@_buvh$5_d6(@py6h57k^gy$c&wq)gj)gv0)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-TEMPLATE_DEBUG = False
+DEBUG = DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
-    'friendtrackr.heroku.com'
+    'friendtrackr.herokuapp.com'
 ]
 
 TEMPLATE_DIRS = (
@@ -106,7 +105,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = 'https://s3.amazonaws.com/freepr/static/'
+STATIC_URL = 'https://freepr.s3.amazonaws.com/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),

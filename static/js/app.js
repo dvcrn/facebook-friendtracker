@@ -35,8 +35,8 @@
   ]);
 
   app.config([
-    '$routeProvider', function($routeProvider) {
-      return $routeProvider.when('/app/', {
+    '$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider) {
+      $routeProvider.when('/app/', {
         templateUrl: 'static/partials/app.html',
         controller: 'AppCtrl'
       }).when('/sync/', {
@@ -51,6 +51,7 @@
       }).otherwise({
         redirectTo: '/auth/sync/'
       });
+      return $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://freepr.s3.amazonaws.com/*']);
     }
   ]);
 

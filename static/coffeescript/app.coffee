@@ -22,7 +22,7 @@ app.factory 'AccessToken', ['$location', ($location) ->
   }
 ]
 
-app.config ['$routeProvider', ($routeProvider) ->
+app.config ['$routeProvider', '$sceDelegateProvider', ($routeProvider, $sceDelegateProvider) ->
   $routeProvider
     .when('/app/', {
       templateUrl: 'static/partials/app.html',
@@ -43,4 +43,6 @@ app.config ['$routeProvider', ($routeProvider) ->
     .otherwise({
       redirectTo: '/auth/sync/'
     })
+
+  $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://freepr.s3.amazonaws.com/*']);
 ]
