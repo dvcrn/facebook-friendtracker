@@ -10,7 +10,25 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_mongo_database_url
+import datetime
+from dateutil.relativedelta import relativedelta
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = "freepr"
+AWS_QUERYSTRING_AUTH = False
+
+date_after_month = datetime.today() + relativedelta(months=1)
+AWS_HEADERS = {
+    'Expires': date_after_month.strftime('%a, %d %b %Y %T GMT'),
+    'Cache-Control': 'max-age=2419200',
+}
+
+DEFAULT_FILE_STORAGE = 'freeper.s3utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'freeper.s3utils.StaticRootS3BotoStorage'
 
 
 # Quick-start development settings - unsuitable for production
@@ -67,6 +85,8 @@ DATABASES = {
    }
 }
 
+DATABASES = {'default': dj_mongo_database_url.parse(os.environ.get('MONGOHQ_URL'))}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -84,7 +104,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'https://s3.amazonaws.com/freepr/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -92,10 +112,9 @@ STATICFILES_DIRS = (
 
 FACEBOOK_APP_ID = os.environ.get('FACEBOOK_APP_ID', '')
 FACEBOOK_APP_SECRET = os.environ.get('FACEBOOK_APP_SECRET', '')
+FACEBOOK_CANVAS_URL = 'https://apps.facebook.com/freeper/'
 
 X_FRAME_OPTIONS = 'allow-from apps.facebook.com'
-
-FACEBOOK_CANVAS_URL = 'https://apps.facebook.com/freeper/'
 
 try:
     from settings_dev import *
