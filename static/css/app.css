@@ -7783,3 +7783,19 @@ th.hide-for-touch {
   animation-timing-function: linear;
   margin: 0 auto;
 }
+
+/* line 73, ../scss/app.scss */
+.top-like-button {
+  position: relative;
+  top: -20px;
+}
+
+/* line 78, ../scss/app.scss */
+.footer {
+  text-align: center;
+  margin: 15px 0;
+}
+/* line 79, ../scss/app.scss */
+.footer p {
+  margin: 0;
+}
