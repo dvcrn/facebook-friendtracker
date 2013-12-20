@@ -5,9 +5,9 @@
   "dependencies": {
     "foundation": "zurb/bower-foundation",
     "jquery": "~2.0.3",
-    "angular": "1.2.5",
+    "angular": "1.2.6",
     "modernizr": "~2.7.1",
-    "angular-route": "1.2.5",
+    "angular-route": "1.2.6",
     "bourbon": "~3.1.8",
     "highcharts-ng": "~0.0.2",
     "highcharts": "~3.0.7",
