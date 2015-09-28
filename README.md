@@ -1,3 +1,5 @@
+# With the latest change to facebooks graph API, it is no longer possible to query all friends of a user. As a result of that, this repository is sadly dead. 
+
 # Friendtracker
 facebook-friendtrackr is a simple facebook application for logging and archiving facebook friends.
 
